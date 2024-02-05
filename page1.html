@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <title>Form</title>
+</head>
+<body>
+    <h1>Please Fill The Form Below</h1>
+    <form action="page2.html" method="GET">
+        <label for="input1">Full Name</label><br>
+        <input type="text" id="input1" name="input1" required><br><br>
+        <label>Gender:</label><br>
+        <label for="male">
+            <input type="radio" id="male" name="gender" value="male"> Male
+        </label>
+        <label for="female"><br>
+            <input type="radio" id="female" name="gender" value="female"> Female
+        </label><br>
+        <br>
+        <label for="age">Age:</label>
+        <div>
+            <input type="number" id="age" name="age" value="18" min="18" max="99">
+        </div>
+        <button type="reset">Reset</button><br>
+        <button type="submit">Submit</button><br>
+    </form>
+    <div id="darkModeToggle" class="dark-mode-toggle"></div>
+</body>
+</html>
