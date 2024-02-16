@@ -18,3 +18,22 @@ function toggleDarkMode() {
     const isDarkMode = document.body.classList.toggle('dark-mode');
     localStorage.setItem('darkMode', isDarkMode);
 }
+async function showImages() {
+    clearInterval(imageInterval);
+    const breed = breedInput.value.toLowerCase();
+    const response = await fetch(`https://dog.ceo/api/breed/${breed}/images/random`);
+    const data = await response.json();
+    const imageContainer = document.getElementById('imageContainer');
+  
+    if (data.status === 'error') {
+      imageContainer.innerHTML = '<p>No such breed</p>';
+    } else {
+      imageContainer.innerHTML = `<img src="${data.message}" alt="${breed}">`;
+      imageInterval = setInterval(async () => {
+        const response = await fetch(`https://dog.ceo/api/breed/${breed}/images/random`);
+        const data = await response.json();
+        imageContainer.innerHTML = `<img src="${data.message}" alt="${breed}">`;
+      }, 5000);
+    }
+  }
+  
